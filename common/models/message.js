@@ -13,7 +13,8 @@ module.exports = function(Message) {
       {
         http: {path: '/palindromecheck', verb: 'get'},
         accepts: {arg: 'id', type: 'string', http: { source: 'query' } },
-        returns: {arg: 'palindrome', type: 'Boolean'}
+        returns: {arg: 'palindrome', type: 'Boolean'},
+        notes: {"Checks if the message is a palindome."}
       }
   );
 };

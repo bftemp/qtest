@@ -1,5 +1,6 @@
 {
   "name": "Message",
+  "description": "Allows users to post and view messages.",
   "plural": "Messages",
   "base": "PersistedModel",
   "idInjection": true,
