@@ -39,11 +39,9 @@ describe('REST API', function(){
 
   it ('Checks if test message is a palindrome', function(done){
     request
-    .put('localhost:3000/api/Messages/palindromecheck?id=testuniqueID')
-    .send({ id: 'test' })
-    .set('Accept', 'application/json')
+    .get('localhost:3000/api/Messages/palindromecheck?id=testuniqueID')
     .end(function(err, res){
-      expect(res.status).to.equal(200);
+      expect(res.body).to.contain('true');
       done();
     });
   });
