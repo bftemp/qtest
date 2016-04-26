@@ -22,7 +22,17 @@ describe('REST API', function(){
   it ('Checks for status 200', function(done){
     request.get('localhost:3000').end(function(err, res){
       expect(res.status).to.equal(200);
-      //expect(res.body).to.contain('world');
+      done();
+    });
+  });
+
+  it ('Adds or updates test message', function(done){
+    request
+    .put('localhost:3000/api/Messages')
+    .send({ message: 'Red rum, sir, is murder.', id: 'test' })
+    .set('Accept', 'application/json')
+    .end(function(err, res){
+      expect(res.status).to.equal(200);
       done();
     });
   });
