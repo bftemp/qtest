@@ -29,7 +29,18 @@ describe('REST API', function(){
   it ('Adds or updates test message', function(done){
     request
     .put('localhost:3000/api/Messages')
-    .send({ message: 'Red rum, sir, is murder.', id: 'test' })
+    .send({ message: 'Red rum, sir, is murder.', id: 'testuniqueID' })
+    .set('Accept', 'application/json')
+    .end(function(err, res){
+      expect(res.status).to.equal(200);
+      done();
+    });
+  });
+
+  it ('Checks if test message is a palindrome', function(done){
+    request
+    .put('localhost:3000/api/Messages/palindromecheck?id=testuniqueID')
+    .send({ id: 'test' })
     .set('Accept', 'application/json')
     .end(function(err, res){
       expect(res.status).to.equal(200);
