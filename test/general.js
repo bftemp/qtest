@@ -41,7 +41,7 @@ describe('REST API', function(){
     request
     .get('localhost:3000/api/Messages/palindromecheck?id=testuniqueID')
     .end(function(err, res){
-      expect(res.body).to.contain('{ palindrome: true }');
+      expect(res.body).to.equal('{ palindrome: true }');
       done();
     });
   });
