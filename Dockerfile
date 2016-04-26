@@ -1,16 +1,12 @@
+# This dockerfile configures an instance of Centos 7 to run my Qlik test node app
+
 FROM    centos:centos7
 
-# Enable Extra Packages for Enterprise Linux (EPEL) for CentOS
-RUN     yum install -y epel-release
-# Install Node.js and npm
-RUN     yum install -y nodejs npm
+RUN yum install -y epel-release
+RUN yum install -y nodejs npm git
 
-# Install app dependencies
-COPY package.json /src/package.json
-RUN cd /src; npm install
-
-# Bundle app source
-COPY . /src
+RUN git clone https://github.com/bftemp/qtest.git
+RUN cd qtest; npm install
 
 EXPOSE  3000
-CMD ["node", "/src/."]
+CMD ["node", "/qtest/."]
