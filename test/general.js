@@ -47,4 +47,14 @@ describe('REST API', function(){
     });
   });
 
+  it ('Deletes the test message', function(done){
+    request
+    .delete('localhost:3000/api/Messages/palindromecheck?id=testuniqueID')
+    .end(function(err, res){
+      var b = JSON.stringify(res.body);
+      expect(b).to.contain('1');
+      done();
+    });
+  });
+
 });
