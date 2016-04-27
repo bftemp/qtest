@@ -14,7 +14,7 @@ module.exports = function(Message) {
         http: {path: '/palindromecheck', verb: 'get'},
         accepts: {arg: 'id', type: 'string', http: { source: 'query' } },
         returns: {arg: 'palindrome', type: 'Boolean'},
-        description:'Checks if the message is a palindome'
+        description:'Checks if the message is a palindrome'
       }
   );
 };
